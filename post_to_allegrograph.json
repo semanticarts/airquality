@@ -1,0 +1,171 @@
+[
+    {
+        "id": "9bc8058.9282df8",
+        "type": "tab",
+        "label": "Upload digests to Allegrograph",
+        "disabled": false,
+        "info": "Ever hour this flow makes a digest of the information in RDFox, gathering the readings for each sensor, finding the number of readings, and the extremes (high/low) for PM2.5 and PM10 readings.  These are constructed into an RDF graph using SPARQL and this is uploaded to a remote triplestore over HTTP"
+    },
+    {
+        "id": "3278daad.819c46",
+        "type": "inject",
+        "z": "9bc8058.9282df8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "4882ab09.fb0d94"
+            ]
+        ]
+    },
+    {
+        "id": "8c9c2112.065a9",
+        "type": "http request",
+        "z": "9bc8058.9282df8",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:12110/datastores/airquality/sparql",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 650,
+        "y": 460,
+        "wires": [
+            [
+                "e71f0206.2c887",
+                "529e87f6.640ec8",
+                "e9793896.9cca88"
+            ]
+        ]
+    },
+    {
+        "id": "e71f0206.2c887",
+        "type": "debug",
+        "z": "9bc8058.9282df8",
+        "name": "sparql result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4882ab09.fb0d94",
+        "type": "function",
+        "z": "9bc8058.9282df8",
+        "name": "construct qry draft",
+        "func": "var timestamp = msg.payload ;\nvar date = new Date(timestamp);\n\nvar ISOdate = date.toISOString().split(\"T\")[0] ;\nvar previousHour = date.getHours()-1\n\n\nmsg.payload = \n`prefix : <http://new/gist/stuff/>\nprefix gist: <https://ontologies.semanticarts.com/gist/>\nprefix owl:  <http://www.w3.org/2002/07/owl#>\nprefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nprefix skos: <http://www.w3.org/2004/02/skos/core#> \nprefix xsd:  <http://www.w3.org/2001/XMLSchema#> \n\nCONSTRUCT {\n\n?observationsURI a :ObservationSummary ;\n    :recorded_by ?sensor ;\n    :period_minimum ?mindv ;\n    :period_maximum ?maxdv ;\n    :period_number_observations ?countdv ;\n    :period_earliest_observation_time ?earliest ;\n    :period_latest_observation_time ?latest ;\n    gist:hasUoM ?UoM ;\n    . \n    ?UoM skos:prefLabel ?UoMLbl .\n}\n\nWHERE\n{\n\n{\nSELECT ?sensor ?date ?PM ?UoM ?UoMLbl ?sensorLbl (min(?sensorDataValue) as ?mindv)  (max(?sensorDataValue) as ?maxdv)  (count(?sensorDataValue) as ?countdv) (min(xsd:time(?dt)) as ?earliest)  (max(xsd:time(?dt)) as ?latest)\nwhere\n{\n  ?count a gist:Count ;\n    :recorded_by ?sensor ;\n    gist:decimalValue ?sensorDataValue ;\n    gist:hasUoM ?UoM ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn/gist:universalDateTime ?dt ;\n    filter (xsd:date(?dt) = xsd:date(\"` + ISOdate + `\"))\n    filter (strStarts(xsd:string(xsd:time(?dt)), \"` + previousHour + `\"))\n    .\n    ?UoM skos:prefLabel ?UoMLbl .\n    ?sensor gist:uniqueText ?sensorLbl .\n    BIND(substr(?UoMLbl,1,4) AS ?PM)\n\n}\ngroup by ?sensor (xsd:date(?dt) as ?date) ?UoM\n}\nbind(IRI(concat(\"http://new/gist/stuff/\",\"_ObservationsSummary_\",\"` + ISOdate + `\",\"_\",\"` + previousHour +`\",\"_\", STR(?sensorLbl),\"_\",STR(?PM))) as ?observationsURI)\n}\n `;  \nmsg.headers = {};\n\nmsg.headers['content-type'] = 'application/sparql-query';\nmsg.headers['accept'] = 'application/n-triples';\nmsg.method=\"POST\";\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 460,
+        "wires": [
+            [
+                "8c9c2112.065a9"
+            ]
+        ]
+    },
+    {
+        "id": "529e87f6.640ec8",
+        "type": "file",
+        "z": "9bc8058.9282df8",
+        "d": true,
+        "name": "",
+        "filename": "/home/ubuntu/results.txt",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 1150,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89b18c41.16a4a",
+        "type": "http request",
+        "z": "9bc8058.9282df8",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "***********ENTER YOUR TRIPLESTORE URL HERE***********",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "basic",
+        "x": 980,
+        "y": 640,
+        "wires": [
+            [
+                "c95b72cf.9c2f6"
+            ]
+        ]
+    },
+    {
+        "id": "c95b72cf.9c2f6",
+        "type": "file",
+        "z": "9bc8058.9282df8",
+        "d": true,
+        "name": "",
+        "filename": "/home/ubuntu/server_responses.txt",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 1350,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e9793896.9cca88",
+        "type": "function",
+        "z": "9bc8058.9282df8",
+        "name": "construct qry draft",
+        "func": "  \nmsg.headers = {};\n\nmsg.headers['content-type'] = 'application/n-triples';\nmsg.method=\"POST\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 580,
+        "wires": [
+            [
+                "89b18c41.16a4a"
+            ]
+        ]
+    }
+]
