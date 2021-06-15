@@ -1,0 +1,442 @@
+[
+    {
+        "id": "8cceaa81.6828e8",
+        "type": "tab",
+        "label": "Gather Sensor Data",
+        "disabled": false,
+        "info": "This flow runs sequentially through a set of sensors and gathers the information from each at 5 minute intervals.  It then converts to RDF using templating and uploads to RDFox"
+    },
+    {
+        "id": "75585ea1.0f17f",
+        "type": "http request",
+        "z": "8cceaa81.6828e8",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://api.luftdaten.info/static/v1/sensor/{{sensor}}/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 650,
+        "y": 360,
+        "wires": [
+            [
+                "32472e80.e5abb2",
+                "3558ee8c.47d602"
+            ]
+        ]
+    },
+    {
+        "id": "54e0bd5b.978a94",
+        "type": "inject",
+        "z": "8cceaa81.6828e8",
+        "name": "Sensor 5331",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sensor",
+                "v": "5331",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "75585ea1.0f17f"
+            ]
+        ]
+    },
+    {
+        "id": "c8d665d3.145758",
+        "type": "inject",
+        "z": "8cceaa81.6828e8",
+        "name": "Sensor 7789",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sensor",
+                "v": "7789",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "75585ea1.0f17f"
+            ]
+        ]
+    },
+    {
+        "id": "1ef05106.6e9eef",
+        "type": "inject",
+        "z": "8cceaa81.6828e8",
+        "name": "Sensor 8554",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sensor",
+                "v": "8554",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 500,
+        "wires": [
+            [
+                "75585ea1.0f17f"
+            ]
+        ]
+    },
+    {
+        "id": "fd6eb456.946868",
+        "type": "inject",
+        "z": "8cceaa81.6828e8",
+        "name": "Sensor 8733",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sensor",
+                "v": "8733",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 580,
+        "wires": [
+            [
+                "75585ea1.0f17f"
+            ]
+        ]
+    },
+    {
+        "id": "8e0d86db.981768",
+        "type": "inject",
+        "z": "8cceaa81.6828e8",
+        "name": "Sensor 15462",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sensor",
+                "v": "15462",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 660,
+        "wires": [
+            [
+                "75585ea1.0f17f"
+            ]
+        ]
+    },
+    {
+        "id": "9196c5c6.5a06e8",
+        "type": "inject",
+        "z": "8cceaa81.6828e8",
+        "name": "Sensor 17079",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sensor",
+                "v": "17079",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 740,
+        "wires": [
+            [
+                "75585ea1.0f17f"
+            ]
+        ]
+    },
+    {
+        "id": "88b4352e.d63f78",
+        "type": "inject",
+        "z": "8cceaa81.6828e8",
+        "name": "Sensor 28373",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sensor",
+                "v": "28373",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 400,
+        "y": 820,
+        "wires": [
+            [
+                "75585ea1.0f17f"
+            ]
+        ]
+    },
+    {
+        "id": "32472e80.e5abb2",
+        "type": "debug",
+        "z": "8cceaa81.6828e8",
+        "name": "1.",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "42a16f14.fb5a9",
+        "type": "debug",
+        "z": "8cceaa81.6828e8",
+        "name": "2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3558ee8c.47d602",
+        "type": "json",
+        "z": "8cceaa81.6828e8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 830,
+        "y": 440,
+        "wires": [
+            [
+                "42a16f14.fb5a9",
+                "f2fde4a1.f3e1d8"
+            ]
+        ]
+    },
+    {
+        "id": "f2fde4a1.f3e1d8",
+        "type": "function",
+        "z": "8cceaa81.6828e8",
+        "name": "",
+        "func": "if (msg.payload.length === 0){return null}\nelse {\n    msg.payload[0].timestamp = msg.payload[0].timestamp.replace(\" \",\"T\");\n    msg.payload[1].timestamp = msg.payload[1].timestamp.replace(\" \",\"T\");\n    \n    if(msg.payload[0].location.indoor === 0)\n    {msg.payload[0].sensorLocation = \"Outdoor\" }\n    else\n    {msg.payload[0].sensorLocation = \"Indoor\" }\n\n    if(msg.payload[1].location.indoor === 0)\n    {msg.payload[1].sensorLocation = \"Outdoor\" }\n    else\n    {msg.payload[1].sensorLocation = \"Indoor\" }\n    if(msg.payload[0].sensor.sensor_type.manufacturer.trim() === \"\"){msg.payload[0].sensorManufacturer = \"unknown\"} else \n    {msg.payload[0].sensorManufacturer = msg.payload[0].sensor.sensor_type.manufacturer.replace(\" \",\"_\")}\n    \n    if(msg.payload[1].sensor.sensor_type.manufacturer.trim() === \"\"){msg.payload[1].sensorManufacturer = \"unknown\"} else \n    msg.payload[1].sensorManufacturer = msg.payload[0].sensor.sensor_type.manufacturer.replace(\" \",\"_\")\n    \nreturn msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 600,
+        "wires": [
+            [
+                "37069e30.48efc2",
+                "5df4a033.8b943"
+            ]
+        ]
+    },
+    {
+        "id": "37069e30.48efc2",
+        "type": "template",
+        "z": "8cceaa81.6828e8",
+        "d": true,
+        "name": "gist rdf v2",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "prefix : <http://new/gist/stuff/>\nprefix gist: <https://ontologies.semanticarts.com/gist/>\nprefix owl:  <http://www.w3.org/2002/07/owl#>\nprefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nprefix skos: <http://www.w3.org/2004/02/skos/core#> \nprefix xsd:  <http://www.w3.org/2001/XMLSchema#> \n\n:SensorType a owl:Class ;\n    rdfs:subClassOf gist:Specification .\n:_SensorManufacturer_{{payload.0.sensorManufacturer}} a gist:Organization ;\n    skos:prefLabel \"{{payload.0.sensor.sensor_type.manufacturer}}\";\n    gist:produces :_SensorType_{{payload.0.sensor.sensor_type.id}} .\n:_SensorType_{{payload.0.sensor.sensor_type.id}} a :SensorType ;\n    skos:prefLabel \"{{payload.0.sensor.sensor_type.name}}\" ;\n    # Technically, can create a gist:ID for this, but might be overkill\n    gist:uniqueText \"{{payload.0.sensor.sensor_type.id}}\" .\n    \n:SensorPlacement a owl:Class ;\n    rdfs:subClassOf gist:Category ;\n    skos:prefLabel \"Sensor Placement\" .\n:_SensorPlacement_Indoor a :SensorPlacement .\n:_SensorPlacement_Outdoor a :SensorPlacement .\n:_Sensor_{{payload.0.sensor.id}} a gist:Sensor;\n    # Creating with blank node. If we think many sensors could be co-located,\n    # create a reproducible URI for locations.\n    gist:geoOccupies [\n        a gist:GeoPoint ;\n        gist:latitude {{payload.0.location.latitude}} ;\n        gist:longitude {{payload.0.location.longitude}} ;\n        gist:hasAltitude [\n            a gist:Extent ;\n            gist:hasUoM gist:_meter ;\n            gist:decimalValue {{payload.0.location.altitude}} ;\n        ] ;\n    ] ;\n    gist:uniqueText \"{{payload.0.sensor.id}}\" ;\n    gist:categorizedBy :SensorPlacement_{{payload.0.sensorLocation}} ;\n    gist:basedOn :_SensorType_{{payload.0.sensor.sensor_type.id}} ;\n    .\n:_PM25Concentration a gist:SimpleUnitOfMeasure ;\n    skos:prefLabel \"PM2.5 Concentration PPM\" .\n:_Observation_{{payload.0.sensordatavalues.0.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.0.sensor.id}} ;\n    gist:id \"{{payload.0.sensordatavalues.0.id}}\" ;\n    gist:decimalValue {{payload.0.sensordatavalues.0.value}} ;\n    gist:hasUoM :_PM25Concentration ;\n    gist:categorizedBy gist:_Aspect_P1 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.0.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n:_PM25Concentration a gist:SimpleUnitOfMeasure ;\n    skos:prefLabel \"PM10 Concentration PPM\" .\n:_Observation_{{payload.0.sensordatavalues.1.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.0.sensor.id}} ;\n    gist:id \"{{payload.0.sensordatavalues.1.id}}\" ;\n    gist:decimalValue {{payload.0.sensordatavalues.1.value}} ;\n    gist:hasUoM :_PM10Concentration ;\n    gist:categorizedBy gist:_Aspect_P2 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.0.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n\n\n\n\n:_SensorManufacturer_{{payload.1.sensorManufacturer}} a gist:Organization ;\n    skos:prefLabel \"{{payload.1.sensor.sensor_type.manufacturer}}\";\n    gist:produces :_SensorType_{{payload.1.sensor.sensor_type.id}} .\n:_SensorType_{{payload.1.sensor.sensor_type.id}} a :SensorType ;\n    skos:prefLabel \"{{payload.1.sensor.sensor_type.name}}\" ;\n    # Technically, can create a gist:ID for this, but might be overkill\n    gist:uniqueText \"{{payload.1.sensor.sensor_type.id}}\" .\n    \n\n:_Sensor_{{payload.1.sensor.id}} a gist:Sensor;\n    # Creating with blank node. If we think many sensors could be co-located,\n    # create a reproducible URI for locations.\n    gist:geoOccupies [\n        a gist:GeoPoint ;\n        gist:latitude {{payload.1.location.latitude}} ;\n        gist:longitude {{payload.1.location.longitude}} ;\n        gist:hasAltitude [\n            a gist:Extent ;\n            gist:hasUoM gist:_meter ;\n            gist:decimalValue {{payload.1.location.altitude}} ;\n        ] ;\n    ] ;\n    gist:uniqueText \"{{payload.1.sensor.id}}\" ;\n    gist:categorizedBy :SensorPlacement_{{payload.1.sensorLocation}} ;\n    gist:basedOn :_SensorType_{{payload.1.sensor.sensor_type.id}} ;\n    .\n\n:_Observation_{{payload.1.sensordatavalues.0.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.1.sensor.id}} ;\n    gist:id \"{{payload.1.sensordatavalues.0.id}}\" ;\n    gist:decimalValue {{payload.1.sensordatavalues.0.value}} ;\n    gist:hasUoM :_PM25Concentration ;\n    gist:categorizedBy gist:_Aspect_P1 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.1.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n\n:_Observation_{{payload.1.sensordatavalues.1.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.1.sensor.id}} ;\n    gist:id \"{{payload.1.sensordatavalues.1.id}}\" ;\n    gist:decimalValue {{payload.1.sensordatavalues.1.value}} ;\n    gist:hasUoM :_PM10Concentration ;\n    gist:categorizedBy gist:_Aspect_P2 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.1.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n\n\n\n",
+        "output": "str",
+        "x": 1060,
+        "y": 720,
+        "wires": [
+            [
+                "fe1ce327.79383"
+            ]
+        ]
+    },
+    {
+        "id": "fe1ce327.79383",
+        "type": "debug",
+        "z": "8cceaa81.6828e8",
+        "name": "5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "3fb0fed5.b4eaf2",
+        "type": "http request",
+        "z": "8cceaa81.6828e8",
+        "name": "Load RDFox",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:12110/datastores/airquality/content",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 1270,
+        "y": 820,
+        "wires": [
+            [
+                "27a58355.1b5efc"
+            ]
+        ]
+    },
+    {
+        "id": "27a58355.1b5efc",
+        "type": "debug",
+        "z": "8cceaa81.6828e8",
+        "name": "RDFox Load",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1530,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "5df4a033.8b943",
+        "type": "template",
+        "z": "8cceaa81.6828e8",
+        "name": "gist rdf v2",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "prefix : <http://new/gist/stuff/>\nprefix gist: <https://ontologies.semanticarts.com/gist/>\nprefix owl:  <http://www.w3.org/2002/07/owl#>\nprefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nprefix skos: <http://www.w3.org/2004/02/skos/core#> \nprefix xsd:  <http://www.w3.org/2001/XMLSchema#> \n\n:SensorType a owl:Class ;\n    rdfs:subClassOf gist:Specification .\n:_SensorManufacturer_{{payload.0.sensorManufacturer}} a gist:Organization ;\n    skos:prefLabel \"{{payload.0.sensor.sensor_type.manufacturer}}\";\n    gist:produces :_SensorType_{{payload.0.sensor.sensor_type.id}} .\n:_SensorType_{{payload.0.sensor.sensor_type.id}} a :SensorType ;\n    skos:prefLabel \"{{payload.0.sensor.sensor_type.name}}\" ;\n    # Technically, can create a gist:ID for this, but might be overkill\n    gist:uniqueText \"{{payload.0.sensor.sensor_type.id}}\" .\n    \n:SensorPlacement a owl:Class ;\n    rdfs:subClassOf gist:Category ;\n    skos:prefLabel \"Sensor Placement\" .\n:_SensorPlacement_Indoor a :SensorPlacement .\n:_SensorPlacement_Outdoor a :SensorPlacement .\n\n:_GeoPoint_{{payload.0.location.latitude}}_{{payload.0.location.longitude}}_{{payload.0.location.altitude}}\n    a gist:GeoPoint ;\n        gist:latitude {{payload.0.location.latitude}} ;\n        gist:longitude {{payload.0.location.longitude}} ;\n        gist:hasAltitude [\n            a gist:Extent ;\n            gist:hasUoM gist:_meter ;\n            gist:decimalValue {{payload.0.location.altitude}} ;\n        ] ;\n        .\n\n:_Sensor_{{payload.0.sensor.id}} a gist:Sensor;\n    # Creating with blank node. If we think many sensors could be co-located,\n    # create a reproducible URI for locations.\n    gist:geoOccupies :_GeoPoint_{{payload.0.location.latitude}}_{{payload.0.location.longitude}}_{{payload.0.location.altitude}};\n    gist:uniqueText \"{{payload.0.sensor.id}}\" ;\n    gist:categorizedBy :SensorPlacement_{{payload.0.sensorLocation}} ;\n    gist:basedOn :_SensorType_{{payload.0.sensor.sensor_type.id}} ;\n    .\n:_PM25Concentration a gist:SimpleUnitOfMeasure ;\n    skos:prefLabel \"PM2.5 Concentration PPM\" .\n:_Observation_{{payload.0.sensordatavalues.0.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.0.sensor.id}} ;\n    gist:id \"{{payload.0.sensordatavalues.0.id}}\" ;\n    gist:decimalValue {{payload.0.sensordatavalues.0.value}} ;\n    gist:hasUoM :_PM25Concentration ;\n    gist:categorizedBy gist:_Aspect_P1 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.0.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n:_PM10Concentration a gist:SimpleUnitOfMeasure ;\n    skos:prefLabel \"PM10 Concentration PPM\" .\n:_Observation_{{payload.0.sensordatavalues.1.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.0.sensor.id}} ;\n    gist:id \"{{payload.0.sensordatavalues.1.id}}\" ;\n    gist:decimalValue {{payload.0.sensordatavalues.1.value}} ;\n    gist:hasUoM :_PM10Concentration ;\n    gist:categorizedBy gist:_Aspect_P2 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.0.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n\n\n\n\n:_SensorManufacturer_{{payload.1.sensorManufacturer}} a gist:Organization ;\n    skos:prefLabel \"{{payload.1.sensor.sensor_type.manufacturer}}\";\n    gist:produces :_SensorType_{{payload.1.sensor.sensor_type.id}} .\n:_SensorType_{{payload.1.sensor.sensor_type.id}} a :SensorType ;\n    skos:prefLabel \"{{payload.1.sensor.sensor_type.name}}\" ;\n    # Technically, can create a gist:ID for this, but might be overkill\n    gist:uniqueText \"{{payload.1.sensor.sensor_type.id}}\" .\n    \n:_GeoPoint_{{payload.1.location.latitude}}_{{payload.0.location.longitude}}_{{payload.0.location.altitude}}\n    a gist:GeoPoint ;\n        gist:latitude {{payload.1.location.latitude}} ;\n        gist:longitude {{payload.1.location.longitude}} ;\n        gist:hasAltitude [\n            a gist:Extent ;\n            gist:hasUoM gist:_meter ;\n            gist:decimalValue {{payload.1.location.altitude}} ;\n        ] ;\n        .\n:_Sensor_{{payload.1.sensor.id}} a gist:Sensor;\n    # Creating with blank node. If we think many sensors could be co-located,\n    # create a reproducible URI for locations.\n    gist:geoOccupies :_GeoPoint_{{payload.1.location.latitude}}_{{payload.0.location.longitude}}_{{payload.0.location.altitude}} ;\n    gist:uniqueText \"{{payload.1.sensor.id}}\" ;\n    gist:categorizedBy :SensorPlacement_{{payload.1.sensorLocation}} ;\n    gist:basedOn :_SensorType_{{payload.1.sensor.sensor_type.id}} ;\n    .\n\n:_Observation_{{payload.1.sensordatavalues.0.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.1.sensor.id}} ;\n    gist:id \"{{payload.1.sensordatavalues.0.id}}\" ;\n    gist:decimalValue {{payload.1.sensordatavalues.0.value}} ;\n    gist:hasUoM :_PM25Concentration ;\n    gist:categorizedBy gist:_Aspect_P1 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.1.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n\n:_Observation_{{payload.1.sensordatavalues.1.id}} a gist:Count ;\n    :recorded_by :_Sensor_{{payload.1.sensor.id}} ;\n    gist:id \"{{payload.1.sensordatavalues.1.id}}\" ;\n    gist:decimalValue {{payload.1.sensordatavalues.1.value}} ;\n    gist:hasUoM :_PM10Concentration ;\n    gist:categorizedBy gist:_Aspect_P2 ;\n    # This is very heavy, we need a DatatypeProperty for dates in gist\n    gist:lastModifiedOn [\n        a gist:TimeInstant; \n        gist:universalDateTime \"{{payload.1.timestamp}}\"^^xsd:dateTime;\n    ]\n    .\n\n\n\n\n",
+        "output": "str",
+        "x": 1040,
+        "y": 900,
+        "wires": [
+            [
+                "effda353.0573",
+                "3fb0fed5.b4eaf2",
+                "ed855384.980fd"
+            ]
+        ]
+    },
+    {
+        "id": "effda353.0573",
+        "type": "debug",
+        "z": "8cceaa81.6828e8",
+        "name": "amended rdf",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "ed855384.980fd",
+        "type": "file",
+        "z": "8cceaa81.6828e8",
+        "d": true,
+        "name": "obs.txt",
+        "filename": "/home/ubuntu/obs.txt",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 1420,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    }
+]
