@@ -1,6 +1,6 @@
 # An Air Quality Sensor Nework Aggregator Using RDFox and Node-RED on Raspberry Pi
 
-The Node-Red code gathers data from a set of air sensors ( see [luftdaten.info](luftdaten.info) for details of sensors) every 5 minutes. The sensors provide PM10 and PM2.5 readings at specified locations (lat, long, alt).  A separate Node-Red flow runs hourly to gather the readings of the previous hour, count the readings per sensor, and calculate min and max.  This data is then sent to Allegrograph or any other triplestore that allows SPARQL over HTTP.
+The Node-Red code gathers data from a set of air sensors ( see [luftdaten.info](luftdaten.info) for details of sensors) every 5 minutes. The sensors provide PM10 and PM2.5 readings at specified locations (lat, long, alt).  A separate Node-Red flow runs hourly to gather the readings of the previous hour, count the readings per sensor, and calculate min and max.  This data is then sent to RDFox, Allegrograph or any other triplestore that allows SPARQL over HTTP.
 
 
 Items needed:
