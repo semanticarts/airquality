@@ -2,7 +2,7 @@
     {
         "id": "9bc8058.9282df8",
         "type": "tab",
-        "label": "Upload digests to Allegrograph",
+        "label": "Upload digests to external triplestore",
         "disabled": false,
         "info": "Ever hour this flow makes a digest of the information in RDFox, gathering the readings for each sensor, finding the number of readings, and the extremes (high/low) for PM2.5 and PM10 readings.  These are constructed into an RDF graph using SPARQL and this is uploaded to a remote triplestore over HTTP"
     },
