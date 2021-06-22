@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "Upload digests to external triplestore",
         "disabled": false,
-        "info": "Ever hour this flow makes a digest of the information in RDFox, gathering the readings for each sensor, finding the number of readings, and the extremes (high/low) for PM2.5 and PM10 readings.  These are constructed into an RDF graph using SPARQL and this is uploaded to a remote triplestore over HTTP"
+        "info": "This flow makes a digest of the information in RDFox at hourly intervals, gathering the readings for each sensor, finding the number of readings, and the extremes (high/low) for PM2.5 and PM10 readings.  These are constructed into an RDF graph using SPARQL and this is uploaded to a remote triplestore over HTTP"
     },
     {
         "id": "3278daad.819c46",
